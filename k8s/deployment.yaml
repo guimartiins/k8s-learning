@@ -18,8 +18,18 @@ spec:
       containers:
         - name: goserver
           image: "castmoon/server-go:v2"
-          env:
-            - name: NAME
-              value: "Guilherme"
-            - name: PLANET
-              value: "Earth"
+          envFrom:
+            - configMapRef:
+                name: goserver-env
+          ## Using ConfigMap env vars
+          # env:
+          #   - name: NAME
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: NAME
+          #   - name: PLANET
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: PLANET
