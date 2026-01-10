@@ -17,10 +17,12 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "castmoon/server-go:v2"
+          image: "castmoon/server-go:v3"
           envFrom:
             - configMapRef:
                 name: goserver-env
+            - secretRef:
+                name: goserver-secret
           ## Using ConfigMap env vars
           # env:
           #   - name: NAME
