@@ -17,7 +17,15 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "castmoon/server-go:v3.1.3"
+          image: "castmoon/server-go:v3.1.3.1"
+
+          resources:
+            requests:
+              cpu: "0.05"
+              memory: 20Mi
+            limits:
+              cpu: "0.05"
+              memory: 25Mi
 
           startupProbe:
             httpGet:
