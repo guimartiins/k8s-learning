@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-h
+spec:
+  # filter correct pods
+  selector:
+    app: mysql
+  ports:
+    - port: 3306
+
+    # when clusterIP is None, it will resolves via DNS,
+    # we need the serviceName in StateFulSet matchs with metadata name in this file
+  clusterIP: None
